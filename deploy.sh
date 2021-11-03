@@ -20,6 +20,9 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:bo-bi/working-git-command.git master:gh-pages
+git push -f https://github.com/bo-bi/working-git-command.git master:gh-pages
+
+# 此处将地址换为了ssh, 官方文档 https://vuepress.vuejs.org/zh/guide/deploy.html#github-pages
+# git push -f git@github.com:bo-bi/working-git-command.git master:gh-pages
 
 cd -
