@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>git常用命令 | Git Command</title>
+    <meta name="description" content="在工作中，经常用到的git命令.">
+    <link rel="icon" href="/working-git-command/bo-bi.jpeg">
+    
+    <link rel="preload" href="/working-git-command/assets/css/0.styles.d1bccd2c.css" as="style"><link rel="preload" href="/working-git-command/assets/js/app.3a7a1b5b.js" as="script"><link rel="preload" href="/working-git-command/assets/js/3.3da549c9.js" as="script"><link rel="prefetch" href="/working-git-command/assets/js/2.7974f97d.js"><link rel="prefetch" href="/working-git-command/assets/js/4.3b8546b2.js"><link rel="prefetch" href="/working-git-command/assets/js/5.19ad2ade.js"><link rel="prefetch" href="/working-git-command/assets/js/6.bd2a0338.js">
+    <link rel="stylesheet" href="/working-git-command/assets/css/0.styles.d1bccd2c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/working-git-command/" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">Git Command</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/working-git-command/" class="nav-link router-link-exact-active router-link-active">Home</a></div><div class="nav-item"><a href="/working-git-command/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/working-git-command/" class="nav-link router-link-exact-active router-link-active">Home</a></div><div class="nav-item"><a href="/working-git-command/guide/" class="nav-link">Guide</a></div><div class="nav-item"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/working-git-command/" class="active sidebar-link">git常用命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/working-git-command/#获取git仓库" class="sidebar-link">_获取git仓库_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#关联remote" class="sidebar-link">_关联remote_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#分支" class="sidebar-link">_分支_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#记录每次更新到仓库" class="sidebar-link">_记录每次更新到仓库_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#更新所有" class="sidebar-link">_更新所有_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#解决冲突-git-rebase" class="sidebar-link">_解决冲突 git rebase_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#合并commit-git-rebase" class="sidebar-link">_合并commit git rebase_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#查看commit历史" class="sidebar-link">_查看commit历史_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#撤回commit" class="sidebar-link">_撤回commit_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#回滚代码到某个commit" class="sidebar-link">_回滚代码到某个commit_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#取下某个commit到本地" class="sidebar-link">_取下某个commit到本地_</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#储藏" class="sidebar-link">储藏</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#追责" class="sidebar-link">追责</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#重写历史" class="sidebar-link">重写历史</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#将文件还原" class="sidebar-link">将文件还原</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#取消跟踪" class="sidebar-link">取消跟踪</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#可以学习的文章来自于微信公众号收藏" class="sidebar-link">可以学习的文章来自于微信公众号收藏</a></li><li class="sidebar-sub-header"><a href="/working-git-command/#vim基础操作" class="sidebar-link">_vim基础操作_</a></li></ul></li><li><a href="/working-git-command/page-a.html" class="sidebar-link">/page-a.html</a></li><li><a href="/working-git-command/page-b.html" class="sidebar-link">Explicit link text</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="git常用命令"><a href="#git常用命令" aria-hidden="true" class="header-anchor">#</a> git常用命令</h1> <h2 id="获取git仓库"><a href="#获取git仓库" aria-hidden="true" class="header-anchor">#</a> <strong>获取git仓库</strong></h2> <ul><li>在现有目录中初始化仓库 git init</li> <li>克隆现有的仓库 git clone https://github.intra.douban.com/music/vfine.git</li></ul> <h3 id="git-init"><a href="#git-init" aria-hidden="true" class="header-anchor">#</a> <strong>git init</strong></h3> <p>场景：希望将本地某个文件夹 push 到 github 上，做为一个project</p> <div class="language- extra-class"><pre class="language-text"><code>git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin https://github.com/bo-bi/test.git
+git push origin master
+</code></pre></div><h3 id="clone项目"><a href="#clone项目" aria-hidden="true" class="header-anchor">#</a> <strong>clone项目</strong></h3> <p>场景：将 github 上现有项目 clone下来</p> <pre><code>// Use HTTPS
+git clone https://github.intra.douban.com/music/vfine.git
+</code></pre> <h3 id="配置本项目用户名和邮箱"><a href="#配置本项目用户名和邮箱" aria-hidden="true" class="header-anchor">#</a> <strong>配置本项目用户名和邮箱</strong></h3> <p>说明： 提交代码时所用的用户名和邮箱，便于小组协作。clone 下项目后首先要配置一下这个。</p> <div class="language- extra-class"><pre class="language-text"><code>// 查看config（重点看[user]）
+cat .git/config
+
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[user]
+	name = fastclick
+	email = fastclick@intern.douban.com
+[branch &quot;pdf&quot;]
+[remote &quot;gitlab&quot;]
+	url = https://gitlab.com/vfine/vfine.git
+	fetch = +refs/heads/*:refs/remotes/gitlab/*
+[branch &quot;dev&quot;]
+[branch &quot;en_temp&quot;]
+[remote &quot;upstream&quot;]
+	url = https://gitlab.com/vfine/vfine.git
+	fetch = +refs/heads/*:refs/remotes/upstream/*
+[remote &quot;origin&quot;]
+	url = git@gitlab.com:bo-bi/vfine.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+// 配置用户名和邮箱
+// 本项目
+git config --local user.name &quot;fastclick&quot;
+git config --local user.email &quot;fastclick@intern.douban.com&quot;
+
+// 配置全局 (所有项目不配置local，默认使用全局)
+git config --global user.name &quot;bo-bi&quot;
+git config --global user.email &quot;18935445147@qq.com&quot;
+</code></pre></div><h2 id="关联remote"><a href="#关联remote" aria-hidden="true" class="header-anchor">#</a> <strong>关联remote</strong></h2> <p><strong>1.remote介绍</strong></p> <blockquote><p>remote: 远端(源)，即clone地址 (https://github.intra.douban.com/music/vfine.git)<br>
+作用：可以从关联的remote处拉下代码到本地，也可以将本地代码提交到对应的remote处。</p> <blockquote><p>upstream: 项目远端(https://github.intra.douban.com/music/vfine.git)<br>origin: 自己远端 (https://github.intra.douban.com/fastclick/vfine.git)
+<br>gitlab: gitlab远端 (https://gitlab.com/vfine/vfine.git) (<em>其它远端参照此处</em>)</p></blockquote></blockquote> <p><strong>2.查询本地已关联的remote</strong></p> <pre><code>git remote -v
+// 打印如下(单个remote下，展示fetch 和 push 的源头)
+gitlab	https://gitlab.com/vfine/vfine.git (fetch)
+gitlab	https://gitlab.com/vfine/vfine.git (push)
+origin	https://github.intra.douban.com/fastclick/vfine.git (fetch)
+origin	https://github.intra.douban.com/fastclick/vfine.git (push)
+upstream	https://github.intra.douban.com/music/vfine.git (fetch)
+upstream	https://github.intra.douban.com/music/vfine.git (push)
+</code></pre> <p><strong>3.添加remote</strong></p> <pre><code>// git remote add name address
+git remote add gitlab https://gitlab.com/vfine/vfine.git
+</code></pre> <p><strong>4.删除remote</strong></p> <pre><code>// git remote remove name
+git remote remove gitlab
+</code></pre> <p><strong>5.重命名remote</strong></p> <pre><code>// git remote rename &lt;oldName&gt; &lt;newName&gt;
+git remote rename origin originn
+</code></pre> <hr> <p><strong>实际遇到的场景</strong></p> <p><strong>场景一</strong>：更改已有的remote，例如更换已有的命名为origin的remote（github地址 ---&gt; gitlab地址）</p> <div class="language- extra-class"><pre class="language-text"><code>// 原来用的github
+gitlab	https://gitlab.com/vfine/vfine.git (fetch)
+gitlab	https://gitlab.com/vfine/vfine.git (push)
+origin	https://github.intra.douban.com/fastclick/vfine.git (fetch)
+origin	https://github.intra.douban.com/fastclick/vfine.git (push)
+upstream	https://github.intra.douban.com/music/vfine.git (fetch)
+upstream	https://github.intra.douban.com/music/vfine.git (push)
+</code></pre></div><p>现在迁移到了gitlab<br>
+TODO: <br>
+将 origin https://github.intra.douban.com/fastclick/vfine.git<br>
+换 origin https://gitlab.com/bo-bi/vfine.git</p> <p>步骤：<br></p> <ol><li>删除remote origin</li> <li>重新添加remote origin</li></ol> <p>或</p> <ol><li>rename要更改的remote</li> <li>重新添加remote</li> <li>移除rename的remote</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 此处我将 HTTPS 更换为了 SSH (之前更改了公钥，误操作，fetch时 导致每次都要输入用户名、密码)
+1. git remote remove origin
+2. git remote add origin git@gitlab.com:bo-bi/vfine.git
+或
+1. git remote rename origin originn
+2. git remote add origin git@gitlab.com:bo-bi/vfine.git
+3. git remote remove originn
+
+// git remote -v
+// 更改后的remote
+gitlab	https://gitlab.com/vfine/vfine.git (fetch)
+gitlab	https://gitlab.com/vfine/vfine.git (push)
+origin	git@gitlab.com:bo-bi/vfine.git (fetch)
+origin	git@gitlab.com:bo-bi/vfine.git (push)
+upstream	https://github.intra.douban.com/music/vfine.git (fetch)
+upstream	https://github.intra.douban.com/music/vfine.git (push)
+</code></pre></div><hr> <h2 id="分支"><a href="#分支" aria-hidden="true" class="header-anchor">#</a> <strong>分支</strong></h2> <p><strong>1.查看本地分支</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// 查看本地分支
+git branch
+
+// 打印如下信息 * 为当前所在分支
+  add_income_type
+* dev
+  fix_bug
+  improve_UI
+  redeem_code
+  replace_chinese_hardcoded
+  test
+  ...
+</code></pre></div><p><strong>2.查看所有分支</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// 查看所有分支
+git branch --all
+
+// 打印如下信息
+
+// 会看到不同remote下存在的分支
+// 本地分支
+// remote  为github   下的分支
+// remote  为origin   下的分支
+// remote  为upstream 下的分支
+
+  add_income_type
+* dev
+  fix_bug
+  replace_chinese_hardcoded
+  search_prop_method
+  test
+  remotes/github/batch_authorize
+  remotes/github/dev
+  remotes/github/fix_bug
+  remotes/github/improve_UI
+  remotes/github/lixiaoxue/new_year_theme
+  remotes/github/master
+  remotes/origin/master
+  remotes/origin/vfine/new_ui
+  remotes/upstream/dev
+  remotes/upstream/master
+  remotes/upstream/tlongzou/add_news
+  remotes/upstream/vfine/new_ui
+</code></pre></div><p><strong>3.删除本地分支</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// git branch -D name
+git branch -D test
+
+</code></pre></div><p><strong>4.删除远程分支</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// 删除remote名为 upstream 下的 en_temp 分支
+// git push &lt;remote&gt; :&lt;branch&gt; 
+git push upstream :en_temp
+</code></pre></div><p><strong>5.切换分支</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// git checkout name
+git checkout dev
+</code></pre></div><p><strong>5.以dev分支为基准，创建分支并切换</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// 以dev分支，创建test分支，并切换到test分支
+git checkout -b test
+</code></pre></div><p><strong>6.以远端上的分支为基准，创建并切换</strong></p> <p>场景：若想在本地，想看别人remote下的分支代码。比如想看他开发的功能怎么样，可以将它的分支映射到你的本地，前提是需要添加他的reomote。（所以有时候不向自己的remote push代码，而是直接向项目remote push代码，这样别人不用关联你的remote。这里还有 是向开源项目贡献代码还是以小组成员身份提交代码之分。）</p> <div class="language- extra-class"><pre class="language-text"><code>// git checkout -b [分支名] [远端名]/[分支名]
+git checkout dev upstream/dev
+
+// 意思为：将remote名为upstream下的dev分支，映射到本地dev分支(或者是其它的名字)。
+
+</code></pre></div><p><strong>7.重命名本地分支</strong></p> <div class="language- extra-class"><pre class="language-text"><code>// git branch -M &lt;oldName&gt; &lt;newName&gt;
+git branch -M fix fixx
+
+// git branch
+* dev
+  fix_vip
+  fixx
+</code></pre></div><p><strong>8.重命名远程分支</strong></p> <ol><li>将要修改的分支映射到本地</li> <li>在本地项目中重命名被映射后的分支</li> <li>删除远程待修改的分支</li> <li>将本地的新分支名 push到远程</li></ol> <p>或<br>
+有直接的命令，待补充</p> <h2 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" aria-hidden="true" class="header-anchor">#</a> <strong>记录每次更新到仓库</strong></h2> <p><strong>1.检查当前文件状态</strong></p> <p>场景：下方已经展示出不同的文件状态。不同情况下执行 git status 会看不到不同的文件状态。</p> <div class="language- extra-class"><pre class="language-text"><code>git status
+</code></pre></div><ol><li>当前工作目录干净</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 当没有 发生修改的文件 时
+On branch test
+nothing to commit, working tree clean
+</code></pre></div><ol start="2"><li>有未跟踪的文件 (Untracked files)</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 当 新增文件 test.md 后
+
+On branch test
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+	test.md
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+
+// 未跟踪的文件意味着Git在之前的快照（提交）中没有这些文件；Git 不会自动将之纳入跟踪范围，因而不用担心把临时文件什么的也归入版本管理。
+</code></pre></div><ol start="3"><li>已暂存状态 (Changes to be committed)</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 跟踪文件
+git add test.md
+
+// git status 出现以下信息
+On branch test
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	new file:   test.md
+
+// 只要在 “Changes to be committed” 这行下面的，就说明是已暂存状态。如果此时提交，那么该文件此时此刻的版本将被留存在历史记录中。(只有已暂存起来的文件才可以进行提交!)
+
+// 取消暂存状态
+git reset HEAD a.js
+</code></pre></div><ol start="4"><li>没有放到暂存区 (Changes not staged for commit)</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 现在我们修改下之前已跟踪过的文件 HelpCenter.vue，然后再次运行 status 命令，会看到这样的状态报告：
+
+On branch test
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	new file:   test.md
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	modified:   src/views/HelpCenter.vue
+
+// 文件 HelpCenter.vue 出现在 “Changes not staged for commit” 这行下面，说明已跟踪文件的内容发生了变化，但还没有放到暂存区。要暂存这次更新，需要运行 git add 命令.
+</code></pre></div><hr> <div class="language- extra-class"><pre class="language-text"><code>// git add src/views/HelpCenter.vue
+// git status 打印如下信息
+
+On branch test
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	modified:   src/views/HelpCenter.vue
+	new file:   test.md
+
+// 现在两个文件都已暂存，下次提交时就会一并记录到仓库。
+</code></pre></div><hr> <div class="language- extra-class"><pre class="language-text"><code>// 假设此时，你想要在 HelpCenter.vue 里再加条注释，再运行 git status 看看：
+
+On branch test
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	modified:   src/views/HelpCenter.vue
+	new file:   test.md
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	modified:   src/views/HelpCenter.vue
+
+// HelpCenter.vue 文件竟然出现了两次，一次算未暂存，一次算已暂存
+// 实际上 Git 只不过暂存了你运行 git add 命令时的版本，如果现在提交，那么提交的是添加注释前的版本，而非当前工作目录中的版本。
+</code></pre></div><hr> <div class="language- extra-class"><pre class="language-text"><code>// 运行了 git add 之后又作了修订的文件，需要重新运行 git add 把最新版本重新暂存起来。
+
+// git add src/views/HelpCenter.vue
+
+On branch test
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	modified:   src/views/HelpCenter.vue
+	new file:   test.md
+</code></pre></div><p><strong>2.查看未暂存的文件修改内容</strong> <br>
+说明：此命令比较的是工作目录中当前文件和暂存区域快照之间的差异，也就是<code>修改之后还没有暂存起来的变化内容</code>。</p> <div class="language- extra-class"><pre class="language-text"><code>// git status 查看文件状态 得知 HelpCenter.vue 文件未暂存
+// git diff src/views/HelpCenter.vue
+
+diff --git a/src/views/HelpCenter.vue b/src/views/HelpCenter.vue
+index 845995c..533ad5e 100644
+--- a/src/views/HelpCenter.vue
++++ b/src/views/HelpCenter.vue
+@@ -1,6 +1,6 @@
+&lt;template lang=&quot;pug&quot;&gt;
+ .help-center
+-  //- h2
++
+   h2 {{ $t('helpCenter') }}
+   .user-type
+     router-link.type(
+(END)
+
+// 可以看到修改的地方
+</code></pre></div><p><strong>3.查看已暂存的文件修改内容</strong> <br>
+说明：此命令比较的是已经暂存起来的文件和上次提交时的快照之间的差异</p> <div class="language- extra-class"><pre class="language-text"><code>// 两种方式
+// git diff --cached
+// git diff --staged
+
+git diff --cached src/views/HelpCenter.vue
+// 同上，会将修改的地方标注出来
+
+// 若此时用 git diff src/views/HelpCenter.vue 来查看已暂存的文件，会发现什么内容都没有，因为 git diff 不过是显示还没有暂存起来的改动，而不是这次工作和上次提交之间的差异。
+</code></pre></div><p><strong>4.将有修改的文件放入暂存区，等待提交</strong> <br> <br>
+git add 作用如下：</p> <ol><li>跟踪新文件</li> <li>把已跟踪的文件放入暂存区域 (add file into staged area)</li> <li>合并时把有冲突的文件标记为已解决状态(如 rebase时)</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// git add 文件/目录路径
+
+// 1.单个跟踪文件
+git add test.md
+
+// 2.批量跟踪文件 (带git diff 功能)
+场景：当有多个文件发生改变时，又需要审查每一个文件的改变，此时批量跟踪文件会变得十分有用，不再需要一个一个文件 git diff 再 git add。只需要执行git add -p，会将你的修改结果一个一个呈现，针对每一个修改结果，输入y/n，来决定是否将此改变进行缓存。
+
+git add -p
+</code></pre></div><p><strong>5.提交更新</strong></p> <div class="language- extra-class"><pre class="language-text"><code>1. git status 无误后
+
+2. git commit -m &quot;message...&quot;
+
+3. git push origin test (或其他remote branch)
+</code></pre></div><p><strong>6.让git忽略某些文件</strong> <br>
+说明：一般我们总会有些文件无需纳入 Git 的管理，也不希望它们总出现在未跟踪文件列表。这时可以创建一个名为 .gitignore 的文件，列出要忽略的文件格式。</p> <div class="language- extra-class"><pre class="language-text"><code>// 忽略规则
+# 此为注释 – 将被 Git 忽略
+# 忽略所有 .a 结尾的文件
+*.a
+# 但 lib.a 除外
+!lib.a
+# 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+/TODO
+# 忽略 build/ 目录下的所有文件
+build/
+# 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+doc/*.txt
+# 忽略 doc/ 目录下所有扩展名为 txt 的文件
+doc/**/*.txt
+
+
+
+// 以下为 vfine 项目中 .gitignore 的文件内容
+.DS_Store
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+.history
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+</code></pre></div><h2 id="更新所有"><a href="#更新所有" aria-hidden="true" class="header-anchor">#</a> <strong>更新所有</strong></h2> <div class="language- extra-class"><pre class="language-text"><code>// 一般我会这么做
+git fetch --all
+git rebase upstream/dev
+
+// 首先更新所有remote下的分支及代码
+// 再将upstream下的dev分支拉到本地当前分支 (或者是其他remote下的其他分支)
+
+// 还有另外一种方式
+git pull origin dev
+</code></pre></div><h2 id="解决冲突-git-rebase"><a href="#解决冲突-git-rebase" aria-hidden="true" class="header-anchor">#</a> <strong>解决冲突 git rebase</strong></h2> <div class="language- extra-class"><pre class="language-text"><code>git fetch --all
+git rebase upstream/dev
+
+// 打印如下
+First, rewinding head to replay your work on top of it...
+Applying: Add judgment on limitless package in DownloadVipMusicDialog.vue.
+Using index info to reconstruct a base tree...
+M	src/components/DownloadVipMusicDialog.vue
+M	src/store/getters.coffee
+Falling back to patching base and 3-way merge...
+Auto-merging src/components/DownloadVipMusicDialog.vue
+CONFLICT (content): Merge conflict in src/components/DownloadVipMusicDialog.vue
+error: Failed to merge in the changes.
+Patch failed at 0001 Add judgment on limitless package in DownloadVipMusicDialog.vue.
+The copy of the patch that failed is found in: .git/rebase-apply/patch
+
+When you have resolved this problem, run &quot;git rebase --continue&quot;.
+If you prefer to skip this patch, run &quot;git rebase --skip&quot; instead.
+To check out the original branch and stop rebasing, run &quot;git rebase --abort&quot;.
+
+// 当前左侧箭头显示如下，说明当前进入解决冲突过程中
+/myDocument/vfine/vfine-fork/vfine  ➦ 34ce9e8 ●✚ &gt;R&gt;
+
+// 相关命令
+// git rebase --abort 中止解决冲突过程，回到rebase之前的状态
+// git rebase --skip 跳过此条commit对比
+// git rebase --continue 继续对比下一个commit (解决冲突的过程为一个commit一个commit进行对比，直到没有冲突为止)
+</code></pre></div><p><strong>解决冲突的步骤：</strong> <br> <strong>1. 去项目中找到这两个文件，并解决冲突</strong></p> <div class="language- extra-class"><pre class="language-text"><code>M	src/components/DownloadVipMusicDialog.vue
+M	src/store/getters.coffee
+
+从以上可以看出这两个文件有冲突
+
+   getters.coffee 没有冲突内容
+
+   DownloadVipMusicDialog.vue 有冲突内容，如下显示
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+    p {{ $t('thisAudioAlreadyAddAuthCode') }}
+=======
+    p(v-if=&quot;!music.vip_used&quot;) {{ $t('thisAudioAlreadyAddAuthCode') }}
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Add judgment on limitless package in DownloadVipMusicDialog.vue.
+      span.link(@click=&quot;showVipAuthDialog&quot;) {{ $t('unlockNow') }}
+
+
+// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD    自己commit的内容    =======
+// =======         是拉下的内容        &gt;&gt;&gt;&gt;&gt;&gt;&gt;
+
+// 选择要留下的内容，删除掉 &lt;&lt;&lt;&lt;&lt;&lt;&lt;、=======、&gt;&gt;&gt;&gt;&gt;&gt;&gt;这类特殊符号
+
+// 解决冲突后，如下
+p {{ $t('thisAudioAlreadyAddAuthCode') }}
+  span.link(@click=&quot;showVipAuthDialog&quot;) {{ $t('unlockNow') }}
+</code></pre></div><p><strong>2. 将冲突的文件标记为已解决状态，完成此次commit对比</strong></p> <div class="language- extra-class"><pre class="language-text"><code>git status
+git diff src/components/DownloadVipMusicDialog.vue
+git add src/components/DownloadVipMusicDialog.vue
+git status 再次查看文件状态
+</code></pre></div><p><strong>3. 继续对比下一个commit</strong></p> <div class="language- extra-class"><pre class="language-text"><code>git rebase --continue
+
+重复以上步骤：
+1. 解决冲突
+2. 将冲突的文件标记为已解决状态，完成此次commit对比
+3. git rebase --continue
+4. 直到对比完会退出来这个过程，左侧箭头恢复  /myDocument/vfine/vfine-fork/vfine   test
+</code></pre></div><p><strong>4. 提交解决完冲突后的commit</strong></p> <div class="language- extra-class"><pre class="language-text"><code>git push origin test 
+// 你会发现这样做，会报错，推不上去，是因为：解决完冲突后的commit，已经不是原来的commit, 比如 commit 1 -&gt; commit 1',
+所以无法正常push， 应该加 -f 强行push
+
+git push origin test -f
+</code></pre></div><h2 id="合并commit-git-rebase"><a href="#合并commit-git-rebase" aria-hidden="true" class="header-anchor">#</a> <strong>合并commit git rebase</strong></h2> <p>说明：针对于一次功能，commit不宜过多，这是因为commit过多不宜回滚版本，一般 10个以内，之上已经算作一个很大的功能，所以有时候需要将多个commit合并为1个。</p> <div class="language- extra-class"><pre class="language-text"><code>// 查看提交历史
+git log
+
+// 打印如下
+commit b6478a536251d3e265731faf150c56ffffed0ba3 (HEAD -&gt; test)
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Fri Mar 15 11:52:50 2019 +0800
+
+    Second commit for rebase.
+
+commit 1c669b5fdfdca2b4be2df6d80e989ff5de26469a
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Fri Mar 15 11:52:03 2019 +0800
+
+    First commit for rebase.
+
+commit 814350626c743f209c7f289df0e6d5669759e269
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Fri Mar 15 11:14:44 2019 +0800
+
+    hahaha2
+
+// 合并方式
+
+// 1.选择合并前两个
+git rebase -i HEAD^^ (git rebase -i HEAD~2)
+
+// 2.选取一个坐标，不包括本身，合并之前的
+git rebase -i 8143506
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// 合并步骤：
+
+1.git rebase -i HEAD^^
+
+2.出现vim，内容如下
+pick 1c669b5 First commit for rebase.
+pick b6478a5 Second commit for rebase.
+
+# Rebase 8143506..b6478a5 onto 8143506 (2 commands)
+
+// ① 合并commit，是从下往上合并commit
+// ② pick 改为 squash / s
+// ③ esc + :wq 保存并退出
+
+// 改为如下
+pick 1c669b5 First commit for rebase.
+s    b6478a5 Second commit for rebase.
+
+3.若没有冲突，继续出现vim
+# This is a combination of 2 commits.
+# This is the 1st commit message:
+
+First commit for rebase.
+
+# This is the commit message #2:
+
+Second commit for rebase.
+
+// 从以上可以看出这两条commit的信息，更改信息，或者是留下其中一条，然后保存退出。
+
+// 相关操作
+// 输入 i 进入编辑状态
+// 点击 esc 退出编辑状态
+// 在不是编辑状态下，连按两次dd，删除行
+// esc + :wq 保存并退出
+
+// 改为如下
+# This is a combination of 2 commits.
+# This is the 1st commit message:
+
+Rebase the first and second commit.
+
+# This is the commit message #2:
+
+4. git log
+
+commit 9f27f93f9dd73e5ee9cccc88b7e5839ed1dc0695 (HEAD -&gt; test)
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Fri Mar 15 11:52:03 2019 +0800
+
+    Rebase the first and second commit.
+</code></pre></div><h2 id="查看commit历史"><a href="#查看commit历史" aria-hidden="true" class="header-anchor">#</a> <strong>查看commit历史</strong></h2> <p>场景：可以对比历史，来确定有没有预期之外的commit</p> <div class="language- extra-class"><pre class="language-text"><code>// 查看当前分支
+git log
+
+// 查看 upstream 远端下的 dev 分支
+git log upstream/dev
+</code></pre></div><h2 id="撤回commit"><a href="#撤回commit" aria-hidden="true" class="header-anchor">#</a> <strong>撤回commit</strong></h2> <h2 id="回滚代码到某个commit"><a href="#回滚代码到某个commit" aria-hidden="true" class="header-anchor">#</a> <strong>回滚代码到某个commit</strong></h2> <ul><li>git reset --hard hash</li> <li>github / gitlab PR页面，点击 revert 按钮，创建revert PR，再merge revert PR</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// git log
+
+commit 9f27f93f9dd73e5ee9cccc88b7e5839ed1dc0695 (HEAD -&gt; test)
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Fri Mar 15 11:52:03 2019 +0800
+
+    Rebase the first and second commit.
+
+commit 814350626c743f209c7f289df0e6d5669759e269
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Fri Mar 15 11:14:44 2019 +0800
+
+    hahaha2
+
+commit f9ae709e225ee988a62163eb281013a7cb554149
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Fri Mar 15 11:06:38 2019 +0800
+
+    hahaha
+
+commit 0dc9dcfdb99e6c70c32764703245b881580c39d7
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Thu Mar 14 15:39:00 2019 +0800
+
+    test
+
+commit 6e9603e36424f919162feaaa8581a9f160ed54a1
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Wed Mar 13 17:38:16 2019 +0800
+
+    Hidden sub account surDplus.
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// 我想将代码回滚到 Hidden sub account surDplus.
+
+// git reset --hard hash
+git reset --hard 6e9603e36
+
+//出现如下信息
+HEAD is now at 6e9603e Hidden sub account surDplus.
+
+// git log
+commit 6e9603e36424f919162feaaa8581a9f160ed54a1 (HEAD -&gt; test)
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Wed Mar 13 17:38:16 2019 +0800
+
+    Hidden sub account surDplus.
+
+commit b5815e0791c398f91f56fe75cc66f1545164901a
+Author: fastclick &lt;fastclick@intern.douban.com&gt;
+Date:   Wed Mar 13 15:47:55 2019 +0800
+
+    Fix bug about count display error in package detail dialog.
+
+// 回滚成功
+</code></pre></div><h2 id="取下某个commit到本地"><a href="#取下某个commit到本地" aria-hidden="true" class="header-anchor">#</a> <strong>取下某个commit到本地</strong></h2> <div class="language- extra-class"><pre class="language-text"><code>// 1.获取想取的commit的哈希值
+git cherry-pick hash
+</code></pre></div><h2 id="储藏"><a href="#储藏" aria-hidden="true" class="header-anchor">#</a> 储藏</h2> <p>场景：当你在当前分支下正在开发某一功能，可能有些代码还未来得及提交，这时突然来了一个需求，需要切换到另外一个分支，进行改动，而当前分支的代码可以不用提交，储存起来，切换分支，当再回来时，再取出来。</p> <div class="language- extra-class"><pre class="language-text"><code>// 储存
+git stash
+
+// 取出
+git stash pop
+
+// 储存列表
+git stash list
+
+// 可以根据ID取对应的储存部分
+</code></pre></div><h2 id="追责"><a href="#追责" aria-hidden="true" class="header-anchor">#</a> 追责</h2> <p>场景: 可查询某个文件,哪一行代码是谁写的,什么时候写的.</p> <div class="language- extra-class"><pre class="language-text"><code>// git blame 文件
+git blame  src/views/Home.vue
+</code></pre></div><h2 id="重写历史"><a href="#重写历史" aria-hidden="true" class="header-anchor">#</a> 重写历史</h2> <p>场景: 修改已提交的 commit 信息</p> <div class="language- extra-class"><pre class="language-text"><code>// 修改最近一条 commit 信息
+git commit --amend
+</code></pre></div><p>更多参考: <a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2" target="_blank" rel="noopener noreferrer">7.6 Git 工具 - 重写历史<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="将文件还原"><a href="#将文件还原" aria-hidden="true" class="header-anchor">#</a> 将文件还原</h2> <p>场景1: 某个文件可能进行了代码更改, 查看变化, 用完后要进行代码还原<br>
+场景2: 若将文件删除, 使用此命令可以将文件还原</p> <div class="language- extra-class"><pre class="language-text"><code>git checkout -- package-lock.json
+</code></pre></div><h2 id="取消跟踪"><a href="#取消跟踪" aria-hidden="true" class="header-anchor">#</a> 取消跟踪</h2> <ol><li>添加 .gitignore 文件</li></ol> <div class="language- extra-class"><pre class="language-text"><code>dev/
+node_modules/
+.vscode
+dist/node_raw/
+
+</code></pre></div><p>适用场景: 针对从未追踪的文件</p> <p>.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的</p> <p>参考:<br> <a href="https://zhuanlan.zhihu.com/p/102890728" target="_blank" rel="noopener noreferrer">知乎<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <ol start="2"><li>git rm</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 取消跟踪文件
+git rm --cached a.js
+
+// 取消跟踪文件夹 加 -r(这么做会递归 rm 文件夹下的每一个文件)
+git rm -r --cached dist
+
+// 取消跟踪文件并且删除(需要文件未发生改动, 以下命令执行才会成功)
+git rm a.js
+</code></pre></div><p>适用场景: 针对已追踪的文件, 会删除远端的对应文件</p> <p>针对已追踪的文件 使用 「git rm --cached 文件」会将本地的文件删除并放入到暂存区, 同时未追踪的文件列表便会出现这个文件</p> <p>这个会将远端的这个已追踪的文件删除掉, 因为要把它不纳入版本管理(不纳入版本管理的意思就是不在远端的文件夹中)</p> <ol start="3"><li>git update-index --assume-unchanged xxx</li></ol> <div class="language- extra-class"><pre class="language-text"><code>// 忽略 a.js
+git update-index --assume-unchanged a.js
+
+// 恢复跟踪
+git update-index --no-assume-unchanged a.js
+
+// 查看忽略列表
+git ls-files -v | grep '^h\ '
+
+// 查看忽略文件路径
+git ls-files -v | grep '^h\ ' | awk '{print $2}'
+
+// 取消所有忽略的文件
+git ls-files -v | grep '^h' | awk '{print $2}' | xargs git update-index --no-assume-unchanged  
+</code></pre></div><p>适用场景: 针对已追踪的文件, 与远端相互不影响</p> <p>比如本地的配置文件和线上的配置文件是不一样的，但是在项目开发中每次提交过程中忽略这些配置文件, 那么你这里就可以把不想提交的文件忽略。</p> <p>参考:<br> <a href="https://www.cnblogs.com/wt645631686/p/10007328.html" target="_blank" rel="noopener noreferrer">以上内容来自于本文<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a><br> <a href="https://www.bookstack.cn/read/git-doc-zh/docs-80.md" target="_blank" rel="noopener noreferrer">命令中文解释<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="可以学习的文章来自于微信公众号收藏"><a href="#可以学习的文章来自于微信公众号收藏" aria-hidden="true" class="header-anchor">#</a> 可以学习的文章来自于微信公众号收藏</h2> <p>这里面有讲rebase <a href="https://mp.weixin.qq.com/s/Q2fLX27eb_fT3A84Pu1q1w" target="_blank" rel="noopener noreferrer">我在工作中是如何使用Git的
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://mp.weixin.qq.com/s/zpAqx3MOa9qDX7cZxRE7Wg" target="_blank" rel="noopener noreferrer">一份值得收藏的 Git 异常处理清单
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://mp.weixin.qq.com/s/CBCumHhwMxFUD3fJ4VzY_Q" target="_blank" rel="noopener noreferrer">三年 Git 使用心得 &amp; 常见问题整理<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://mp.weixin.qq.com/s/tV6so3KoVs8z5GCJ0Y5HSw" target="_blank" rel="noopener noreferrer">收好这份 Git 应急手册，关键时刻可保你一命<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://mp.weixin.qq.com/s/cSaTdFfrc_u7YPmgFdYdAQ" target="_blank" rel="noopener noreferrer">小姐姐用动图展示 10 个 Git 命令<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="https://mp.weixin.qq.com/s/8oWsj_ipp73crD_vg58LeQ" target="_blank" rel="noopener noreferrer">你可能已经忽略的 git commit 规范
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h1 id="其它操作"><a href="#其它操作" aria-hidden="true" class="header-anchor">#</a> 其它操作</h1> <h2 id="vim基础操作"><a href="#vim基础操作" aria-hidden="true" class="header-anchor">#</a> <strong>vim基础操作</strong></h2> <p>注意：这些命令必须是英文输入法键入，不可以是中文输入法。</p> <p><strong>1.创建文件</strong></p> <div class="language- extra-class"><pre class="language-text"><code>vim test.js
+</code></pre></div><p><strong>2.基础操作</strong></p> <div class="language- extra-class"><pre class="language-text"><code>1.键入 i 进入插入模式 (即编辑模式)
+  -- INSERT -- 
+
+2.按 esc 退出编辑 ---&gt; 在 不是插入模式 下，才可进行以下操作
+
+  退出:
+      :wq 保存并退出
+      :q  退出不保存
+      (若不能正常退出，后面加! 如 !wq q!)
+
+
+  删除
+      dd 删除一整行
+      x  删除 (delete mac /Backspace win 只能向左推动光标)
+
+  撤销
+      u 相当于 ctrl + z
+
+  移动光标
+      fn + &lt;- (方向键) 移动到行头
+      fn + -&gt; (方向键) 移动到行尾
+
+  选中可视块
+      fn + v + &lt;- / -&gt;
+
+  复制
+      y 复制选中内容
+
+  粘贴 
+      p 粘贴    
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>// 查看当前文件夹下有什么文件
+ls -a
+
+.                   .DS_Store           .gitignore          deploy.sh           node_modules        working-git-command
+..                  .git                .history            docs                package.json        yarn.lock
+
+// 进入某一位置 (tab可自动联想和查询)
+cd /personal/travel
+
+// 用vscode打开项目 (code 路径)
+code /blog/working-git-command
+
+// 重新开一个命令行，不需要将之前已经输入的删去
+// 退出服务
+control(^) + c 
+
+// 新建文件夹
+mkdir speak
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>history
+场景：可以在终端上，无论是本地还是在服务器上，输入history，可以看到之前输入的命令历史，这有助于你不知道有些命令输什么，可以看之前别人输入的命令进行输入。
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/working-git-command/page-a.html">
+          /page-a.html
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/working-git-command/assets/js/app.3a7a1b5b.js" defer></script><script src="/working-git-command/assets/js/3.3da549c9.js" defer></script>
+  </body>
+</html>
